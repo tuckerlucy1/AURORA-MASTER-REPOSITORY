@@ -1,0 +1,7 @@
+git init
+git add skywalk_analysis_report.md
+git commit -m "Add Skywalk network analysis report"
+git branch -M main
+git remote add origin https://github.com/<YOUR-USERNAME>/<YOUR-REPO-NAME>.git
+git push -u origin main
+
