@@ -1,0 +1,450 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/tuckerlucy1/AURORA-MASTER-REPOSITORY/blob/main/Some_address\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "kDn_lVxg3Z2G"
+      },
+      "source": [
+        "# Importing a library that is not in Colaboratory\n",
+        "\n",
+        "To import a library that's not in Colaboratory by default, you can use `!pip install` or `!apt-get install`."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!pip3 install --upgrade pip\n",
+        "!pip3 install jupyter"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "oN4ieiu-1B02",
+        "outputId": "220580e6-c591-4aba-cc3b-26e51eea0249"
+      },
+      "execution_count": 33,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Requirement already satisfied: pip in /usr/local/lib/python3.13/dist-packages (24.1.2)\n",
+            "Collecting pip\n",
+            "  Downloading pip-26.2.1-py3-none-any.whl.metadata (4.6 kB)\n",
+            "Downloading pip-26.2.1-py3-none-any.whl (1.8 MB)\n",
+            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.8/1.8 MB\u001b[0m \u001b[31m58.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25hInstalling collected packages: pip\n",
+            "  Attempting uninstall: pip\n",
+            "    Found existing installation: pip 24.1.2\n",
+            "    Uninstalling pip-24.1.2:\n",
+            "      Successfully uninstalled pip-24.1.2\n",
+            "Successfully installed pip-26.2.1\n",
+            "Collecting jupyter\n",
+            "  Downloading jupyter-1.1.1-py2.py3-none-any.whl.metadata (2.0 kB)\n",
+            "Requirement already satisfied: notebook in /usr/local/lib/python3.13/dist-packages (from jupyter) (6.5.7)\n",
+            "Requirement already satisfied: jupyter-console in /usr/local/lib/python3.13/dist-packages (from jupyter) (6.6.3)\n",
+            "Requirement already satisfied: nbconvert in /usr/local/lib/python3.13/dist-packages (from jupyter) (7.17.1)\n",
+            "Requirement already satisfied: ipykernel in /usr/local/lib/python3.13/dist-packages (from jupyter) (6.17.1)\n",
+            "Requirement already satisfied: ipywidgets in /usr/local/lib/python3.13/dist-packages (from jupyter) (7.7.1)\n",
+            "Collecting jupyterlab (from jupyter)\n",
+            "  Downloading jupyterlab-4.6.3-py3-none-any.whl.metadata (16 kB)\n",
+            "Requirement already satisfied: debugpy>=1.0 in /usr/local/lib/python3.13/dist-packages (from ipykernel->jupyter) (1.8.15)\n",
+            "Requirement already satisfied: ipython>=7.23.1 in /usr/local/lib/python3.13/dist-packages (from ipykernel->jupyter) (7.34.0)\n",
+            "Requirement already satisfied: jupyter-client>=6.1.12 in /usr/local/lib/python3.13/dist-packages (from ipykernel->jupyter) (7.4.9)\n",
+            "Requirement already satisfied: matplotlib-inline>=0.1 in /usr/local/lib/python3.13/dist-packages (from ipykernel->jupyter) (0.2.2)\n",
+            "Requirement already satisfied: nest-asyncio in /usr/local/lib/python3.13/dist-packages (from ipykernel->jupyter) (1.6.0)\n",
+            "Requirement already satisfied: packaging in /usr/local/lib/python3.13/dist-packages (from ipykernel->jupyter) (26.3)\n",
+            "Requirement already satisfied: psutil in /usr/local/lib/python3.13/dist-packages (from ipykernel->jupyter) (5.9.5)\n",
+            "Requirement already satisfied: pyzmq>=17 in /usr/local/lib/python3.13/dist-packages (from ipykernel->jupyter) (26.2.1)\n",
+            "Requirement already satisfied: tornado>=6.1 in /usr/local/lib/python3.13/dist-packages (from ipykernel->jupyter) (6.5.7)\n",
+            "Requirement already satisfied: traitlets>=5.1.0 in /usr/local/lib/python3.13/dist-packages (from ipykernel->jupyter) (5.7.1)\n",
+            "Requirement already satisfied: setuptools>=18.5 in /usr/local/lib/python3.13/dist-packages (from ipython>=7.23.1->ipykernel->jupyter) (80.10.2)\n",
+            "Collecting jedi>=0.16 (from ipython>=7.23.1->ipykernel->jupyter)\n",
+            "  Downloading jedi-0.20.0-py2.py3-none-any.whl.metadata (23 kB)\n",
+            "Requirement already satisfied: decorator in /usr/local/lib/python3.13/dist-packages (from ipython>=7.23.1->ipykernel->jupyter) (4.4.2)\n",
+            "Requirement already satisfied: pickleshare in /usr/local/lib/python3.13/dist-packages (from ipython>=7.23.1->ipykernel->jupyter) (0.7.5)\n",
+            "Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,<3.1.0,>=2.0.0 in /usr/local/lib/python3.13/dist-packages (from ipython>=7.23.1->ipykernel->jupyter) (3.0.53)\n",
+            "Requirement already satisfied: pygments in /usr/local/lib/python3.13/dist-packages (from ipython>=7.23.1->ipykernel->jupyter) (2.21.0)\n",
+            "Requirement already satisfied: backcall in /usr/local/lib/python3.13/dist-packages (from ipython>=7.23.1->ipykernel->jupyter) (0.2.0)\n",
+            "Requirement already satisfied: pexpect>4.3 in /usr/local/lib/python3.13/dist-packages (from ipython>=7.23.1->ipykernel->jupyter) (4.9.0)\n",
+            "Requirement already satisfied: wcwidth>=0.1.4 in /usr/local/lib/python3.13/dist-packages (from prompt-toolkit!=3.0.0,!=3.0.1,<3.1.0,>=2.0.0->ipython>=7.23.1->ipykernel->jupyter) (0.8.3)\n",
+            "Requirement already satisfied: parso<0.9.0,>=0.8.6 in /usr/local/lib/python3.13/dist-packages (from jedi>=0.16->ipython>=7.23.1->ipykernel->jupyter) (0.8.7)\n",
+            "Requirement already satisfied: entrypoints in /usr/local/lib/python3.13/dist-packages (from jupyter-client>=6.1.12->ipykernel->jupyter) (0.4)\n",
+            "Requirement already satisfied: jupyter-core>=4.9.2 in /usr/local/lib/python3.13/dist-packages (from jupyter-client>=6.1.12->ipykernel->jupyter) (5.9.1)\n",
+            "Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.13/dist-packages (from jupyter-client>=6.1.12->ipykernel->jupyter) (2.9.0.post0)\n",
+            "Requirement already satisfied: platformdirs>=2.5 in /usr/local/lib/python3.13/dist-packages (from jupyter-core>=4.9.2->jupyter-client>=6.1.12->ipykernel->jupyter) (4.11.7)\n",
+            "Requirement already satisfied: ptyprocess>=0.5 in /usr/local/lib/python3.13/dist-packages (from pexpect>4.3->ipython>=7.23.1->ipykernel->jupyter) (0.7.0)\n",
+            "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.13/dist-packages (from python-dateutil>=2.8.2->jupyter-client>=6.1.12->ipykernel->jupyter) (1.17.0)\n",
+            "Requirement already satisfied: ipython-genutils~=0.2.0 in /usr/local/lib/python3.13/dist-packages (from ipywidgets->jupyter) (0.2.0)\n",
+            "Requirement already satisfied: widgetsnbextension~=3.6.0 in /usr/local/lib/python3.13/dist-packages (from ipywidgets->jupyter) (3.6.10)\n",
+            "Requirement already satisfied: jupyterlab-widgets>=1.0.0 in /usr/local/lib/python3.13/dist-packages (from ipywidgets->jupyter) (3.0.17)\n",
+            "Requirement already satisfied: jinja2 in /usr/local/lib/python3.13/dist-packages (from notebook->jupyter) (3.1.6)\n",
+            "Requirement already satisfied: argon2-cffi in /usr/local/lib/python3.13/dist-packages (from notebook->jupyter) (25.1.0)\n",
+            "Requirement already satisfied: nbformat in /usr/local/lib/python3.13/dist-packages (from notebook->jupyter) (5.11.1)\n",
+            "Requirement already satisfied: Send2Trash>=1.8.0 in /usr/local/lib/python3.13/dist-packages (from notebook->jupyter) (2.1.0)\n",
+            "Requirement already satisfied: terminado>=0.8.3 in /usr/local/lib/python3.13/dist-packages (from notebook->jupyter) (0.18.1)\n",
+            "Requirement already satisfied: prometheus-client in /usr/local/lib/python3.13/dist-packages (from notebook->jupyter) (0.26.0)\n",
+            "Requirement already satisfied: nbclassic>=0.4.7 in /usr/local/lib/python3.13/dist-packages (from notebook->jupyter) (1.3.3)\n",
+            "Requirement already satisfied: notebook-shim>=0.2.3 in /usr/local/lib/python3.13/dist-packages (from nbclassic>=0.4.7->notebook->jupyter) (0.2.4)\n",
+            "Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.13/dist-packages (from nbconvert->jupyter) (4.13.5)\n",
+            "Requirement already satisfied: bleach!=5.0.0 in /usr/local/lib/python3.13/dist-packages (from bleach[css]!=5.0.0->nbconvert->jupyter) (6.4.0)\n",
+            "Requirement already satisfied: defusedxml in /usr/local/lib/python3.13/dist-packages (from nbconvert->jupyter) (0.7.1)\n",
+            "Requirement already satisfied: jupyterlab-pygments in /usr/local/lib/python3.13/dist-packages (from nbconvert->jupyter) (0.3.0)\n",
+            "Requirement already satisfied: markupsafe>=2.0 in /usr/local/lib/python3.13/dist-packages (from nbconvert->jupyter) (3.0.3)\n",
+            "Requirement already satisfied: mistune<4,>=2.0.3 in /usr/local/lib/python3.13/dist-packages (from nbconvert->jupyter) (3.3.4)\n",
+            "Requirement already satisfied: nbclient>=0.5.0 in /usr/local/lib/python3.13/dist-packages (from nbconvert->jupyter) (0.10.4)\n",
+            "Requirement already satisfied: pandocfilters>=1.4.1 in /usr/local/lib/python3.13/dist-packages (from nbconvert->jupyter) (1.5.1)\n",
+            "Requirement already satisfied: webencodings in /usr/local/lib/python3.13/dist-packages (from bleach!=5.0.0->bleach[css]!=5.0.0->nbconvert->jupyter) (0.6.1)\n",
+            "Requirement already satisfied: tinycss2>=1.1.0 in /usr/local/lib/python3.13/dist-packages (from bleach[css]!=5.0.0->nbconvert->jupyter) (1.5.1)\n",
+            "Requirement already satisfied: fastjsonschema>=2.15 in /usr/local/lib/python3.13/dist-packages (from nbformat->notebook->jupyter) (2.22.2)\n",
+            "Requirement already satisfied: jsonschema>=2.6 in /usr/local/lib/python3.13/dist-packages (from nbformat->notebook->jupyter) (4.26.0)\n",
+            "Requirement already satisfied: attrs>=22.2.0 in /usr/local/lib/python3.13/dist-packages (from jsonschema>=2.6->nbformat->notebook->jupyter) (26.1.0)\n",
+            "Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /usr/local/lib/python3.13/dist-packages (from jsonschema>=2.6->nbformat->notebook->jupyter) (2025.9.1)\n",
+            "Requirement already satisfied: referencing>=0.28.4 in /usr/local/lib/python3.13/dist-packages (from jsonschema>=2.6->nbformat->notebook->jupyter) (0.37.0)\n",
+            "Requirement already satisfied: rpds-py>=0.25.0 in /usr/local/lib/python3.13/dist-packages (from jsonschema>=2.6->nbformat->notebook->jupyter) (2026.6.3)\n",
+            "Requirement already satisfied: jupyter-server<3,>=1.8 in /usr/local/lib/python3.13/dist-packages (from notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook->jupyter) (2.20.0)\n",
+            "Requirement already satisfied: anyio>=3.1.0 in /usr/local/lib/python3.13/dist-packages (from jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook->jupyter) (4.14.2)\n",
+            "Requirement already satisfied: jupyter-events>=0.11.0 in /usr/local/lib/python3.13/dist-packages (from jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook->jupyter) (0.12.1)\n",
+            "Requirement already satisfied: jupyter-server-terminals>=0.4.4 in /usr/local/lib/python3.13/dist-packages (from jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook->jupyter) (0.5.4)\n",
+            "Requirement already satisfied: websocket-client>=1.7 in /usr/local/lib/python3.13/dist-packages (from jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook->jupyter) (1.9.2)\n",
+            "Requirement already satisfied: idna>=2.8 in /usr/local/lib/python3.13/dist-packages (from anyio>=3.1.0->jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook->jupyter) (3.19)\n",
+            "Requirement already satisfied: argon2-cffi-bindings in /usr/local/lib/python3.13/dist-packages (from argon2-cffi->notebook->jupyter) (26.1.0)\n",
+            "Requirement already satisfied: python-json-logger>=2.0.4 in /usr/local/lib/python3.13/dist-packages (from jupyter-events>=0.11.0->jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook->jupyter) (4.2.0)\n",
+            "Requirement already satisfied: pyyaml>=5.3 in /usr/local/lib/python3.13/dist-packages (from jupyter-events>=0.11.0->jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook->jupyter) (6.0.3)\n",
+            "Requirement already satisfied: rfc3339-validator in /usr/local/lib/python3.13/dist-packages (from jupyter-events>=0.11.0->jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook->jupyter) (0.1.4)\n",
+            "Requirement already satisfied: rfc3986-validator>=0.1.1 in /usr/local/lib/python3.13/dist-packages (from jupyter-events>=0.11.0->jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook->jupyter) (0.1.1)\n",
+            "Requirement already satisfied: fqdn in /usr/local/lib/python3.13/dist-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook->jupyter) (1.5.1)\n",
+            "Requirement already satisfied: isoduration in /usr/local/lib/python3.13/dist-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook->jupyter) (20.11.0)\n",
+            "Requirement already satisfied: jsonpointer>1.13 in /usr/local/lib/python3.13/dist-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook->jupyter) (3.1.1)\n",
+            "Requirement already satisfied: rfc3987-syntax>=1.1.0 in /usr/local/lib/python3.13/dist-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook->jupyter) (1.1.0)\n",
+            "Requirement already satisfied: uri-template in /usr/local/lib/python3.13/dist-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook->jupyter) (1.3.0)\n",
+            "Requirement already satisfied: webcolors>=24.6.0 in /usr/local/lib/python3.13/dist-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook->jupyter) (25.10.0)\n",
+            "Requirement already satisfied: lark>=1.2.2 in /usr/local/lib/python3.13/dist-packages (from rfc3987-syntax>=1.1.0->jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook->jupyter) (1.3.1)\n",
+            "Requirement already satisfied: cffi>=1.0.1 in /usr/local/lib/python3.13/dist-packages (from argon2-cffi-bindings->argon2-cffi->notebook->jupyter) (2.1.1)\n",
+            "Requirement already satisfied: pycparser in /usr/local/lib/python3.13/dist-packages (from cffi>=1.0.1->argon2-cffi-bindings->argon2-cffi->notebook->jupyter) (3.0)\n",
+            "Requirement already satisfied: soupsieve>1.2 in /usr/local/lib/python3.13/dist-packages (from beautifulsoup4->nbconvert->jupyter) (2.9.2)\n",
+            "Requirement already satisfied: typing-extensions>=4.0.0 in /usr/local/lib/python3.13/dist-packages (from beautifulsoup4->nbconvert->jupyter) (4.16.0)\n",
+            "Requirement already satisfied: arrow>=0.15.0 in /usr/local/lib/python3.13/dist-packages (from isoduration->jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook->jupyter) (1.4.0)\n",
+            "Requirement already satisfied: tzdata in /usr/local/lib/python3.13/dist-packages (from arrow>=0.15.0->isoduration->jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook->jupyter) (2026.3)\n",
+            "Collecting async-lru>=1.0.0 (from jupyterlab->jupyter)\n",
+            "  Downloading async_lru-2.3.0-py3-none-any.whl.metadata (7.6 kB)\n",
+            "Requirement already satisfied: httpx<1,>=0.25.0 in /usr/local/lib/python3.13/dist-packages (from jupyterlab->jupyter) (0.28.1)\n",
+            "Collecting jupyter-builder>=1.0.2 (from jupyterlab->jupyter)\n",
+            "  Downloading jupyter_builder-1.2.3-py3-none-any.whl.metadata (7.8 kB)\n",
+            "Collecting jupyter-lsp>=2.0.0 (from jupyterlab->jupyter)\n",
+            "  Downloading jupyter_lsp-2.3.1-py3-none-any.whl.metadata (1.8 kB)\n",
+            "Collecting jupyterlab-server<3,>=2.28.0 (from jupyterlab->jupyter)\n",
+            "  Downloading jupyterlab_server-2.28.0-py3-none-any.whl.metadata (5.9 kB)\n",
+            "Requirement already satisfied: certifi in /usr/local/lib/python3.13/dist-packages (from httpx<1,>=0.25.0->jupyterlab->jupyter) (2026.7.22)\n",
+            "Requirement already satisfied: httpcore==1.* in /usr/local/lib/python3.13/dist-packages (from httpx<1,>=0.25.0->jupyterlab->jupyter) (1.0.9)\n",
+            "Requirement already satisfied: h11>=0.16 in /usr/local/lib/python3.13/dist-packages (from httpcore==1.*->httpx<1,>=0.25.0->jupyterlab->jupyter) (0.16.0)\n",
+            "Requirement already satisfied: babel>=2.10 in /usr/local/lib/python3.13/dist-packages (from jupyterlab-server<3,>=2.28.0->jupyterlab->jupyter) (2.18.0)\n",
+            "Collecting json5>=0.9.0 (from jupyterlab-server<3,>=2.28.0->jupyterlab->jupyter)\n",
+            "  Downloading json5-0.15.0-py3-none-any.whl.metadata (37 kB)\n",
+            "Requirement already satisfied: requests>=2.31 in /usr/local/lib/python3.13/dist-packages (from jupyterlab-server<3,>=2.28.0->jupyterlab->jupyter) (2.32.4)\n",
+            "Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.13/dist-packages (from requests>=2.31->jupyterlab-server<3,>=2.28.0->jupyterlab->jupyter) (3.4.9)\n",
+            "Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.13/dist-packages (from requests>=2.31->jupyterlab-server<3,>=2.28.0->jupyterlab->jupyter) (2.5.0)\n",
+            "Downloading jupyter-1.1.1-py2.py3-none-any.whl (2.7 kB)\n",
+            "Downloading jedi-0.20.0-py2.py3-none-any.whl (4.9 MB)\n",
+            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m4.9/4.9 MB\u001b[0m \u001b[31m46.1 MB/s\u001b[0m  \u001b[33m0:00:00\u001b[0m\n",
+            "\u001b[?25hDownloading jupyterlab-4.6.3-py3-none-any.whl (17.2 MB)\n",
+            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m17.2/17.2 MB\u001b[0m \u001b[31m101.4 MB/s\u001b[0m  \u001b[33m0:00:00\u001b[0m\n",
+            "\u001b[?25hDownloading jupyterlab_server-2.28.0-py3-none-any.whl (59 kB)\n",
+            "Downloading async_lru-2.3.0-py3-none-any.whl (8.4 kB)\n",
+            "Downloading json5-0.15.0-py3-none-any.whl (36 kB)\n",
+            "Downloading jupyter_builder-1.2.3-py3-none-any.whl (947 kB)\n",
+            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m947.5/947.5 kB\u001b[0m \u001b[31m38.7 MB/s\u001b[0m  \u001b[33m0:00:00\u001b[0m\n",
+            "\u001b[?25hDownloading jupyter_lsp-2.3.1-py3-none-any.whl (77 kB)\n",
+            "Installing collected packages: json5, jedi, async-lru, jupyter-builder, jupyterlab-server, jupyter-lsp, jupyterlab, jupyter\n",
+            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m8/8\u001b[0m [jupyter]\n",
+            "\u001b[1A\u001b[2KSuccessfully installed async-lru-2.3.0 jedi-0.20.0 json5-0.15.0 jupyter-1.1.1 jupyter-builder-1.2.3 jupyter-lsp-2.3.1 jupyterlab-4.6.3 jupyterlab-server-2.28.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!npm install -g solc"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "lyGtZ6rd1M8M",
+        "outputId": "80a74ac3-8548-4f3c-8066-fc68121a81a9"
+      },
+      "execution_count": 35,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[1G\u001b[0K⠙\u001b[1G\u001b[0K⠹\u001b[1G\u001b[0K⠸\u001b[1G\u001b[0K⠼\u001b[1G\u001b[0K⠴\u001b[1G\u001b[0K⠦\u001b[1G\u001b[0K⠧\u001b[1G\u001b[0K⠇\u001b[1G\u001b[0K⠏\u001b[1G\u001b[0K⠋\u001b[1G\u001b[0K⠙\u001b[1G\u001b[0K\n",
+            "added 8 packages in 1s\n",
+            "\u001b[1G\u001b[0K⠙\u001b[1G\u001b[0K\n",
+            "\u001b[1G\u001b[0K⠙\u001b[1G\u001b[0K1 package is looking for funding\n",
+            "\u001b[1G\u001b[0K⠙\u001b[1G\u001b[0K  run `npm fund` for details\n",
+            "\u001b[1G\u001b[0K⠙\u001b[1G\u001b[0K\u001b[1mnpm\u001b[22m \u001b[96mnotice\u001b[39m\n",
+            "\u001b[1mnpm\u001b[22m \u001b[96mnotice\u001b[39m New \u001b[31mmajor\u001b[39m version of npm available! \u001b[31m10.8.2\u001b[39m -> \u001b[34m12.0.2\u001b[39m\n",
+            "\u001b[1mnpm\u001b[22m \u001b[96mnotice\u001b[39m Changelog: \u001b[34mhttps://github.com/npm/cli/releases/tag/v12.0.2\u001b[39m\n",
+            "\u001b[1mnpm\u001b[22m \u001b[96mnotice\u001b[39m To update run: \u001b[4mnpm install -g npm@12.0.2\u001b[24m\n",
+            "\u001b[1mnpm\u001b[22m \u001b[96mnotice\u001b[39m\n",
+            "\u001b[1G\u001b[0K⠙\u001b[1G\u001b[0K"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from eth.chains.base import MiningChain"
+      ],
+      "metadata": {
+        "id": "rPuN5gt_3Ipu"
+      },
+      "execution_count": 38,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "783d4ee0"
+      },
+      "source": [
+        "### 1. Create a sample Solidity contract"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "46cc9330",
+        "outputId": "2cb98fd4-7089-440f-d5bf-473f1922fa21"
+      },
+      "source": [
+        "contract_code = '''\n",
+        "pragma solidity ^0.8.0;\n",
+        "\n",
+        "contract SimpleStorage {\n",
+        "    uint public storedData;\n",
+        "\n",
+        "    function set(uint x) public {\n",
+        "        storedData = x;\n",
+        "    }\n",
+        "\n",
+        "    function get() public view returns (uint) {\n",
+        "        return storedData;\n",
+        "    }\n",
+        "}\n",
+        "'''\n",
+        "\n",
+        "# Save the contract to a file\n",
+        "with open('SimpleStorage.sol', 'w') as f:\n",
+        "    f.write(contract_code)\n",
+        "\n",
+        "print(\"SimpleStorage.sol created.\")"
+      ],
+      "execution_count": 36,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "SimpleStorage.sol created.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "current_vm = chain.get_vm()\n",
+        ">>> state = current_vm.state\n",
+        ">>> state.get_balance(SOME_ADDRESS)\n",
+        "10000000000000000000000"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 297
+        },
+        "id": "_PnkZTs83YjQ",
+        "outputId": "8af7e5e5-3aff-47fc-dd98-35a7bedf1d33"
+      },
+      "execution_count": 40,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "NameError",
+          "evalue": "name 'SOME_ADDRESS' is not defined",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m/tmp/ipykernel_3943/2179031719.py\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0mcurrent_vm\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mchain\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mget_vm\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      2\u001b[0m \u001b[0mstate\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mcurrent_vm\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mstate\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 3\u001b[0;31m \u001b[0mstate\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mget_balance\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mSOME_ADDRESS\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      4\u001b[0m \u001b[0;36m10000000000000000000000\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mNameError\u001b[0m: name 'SOME_ADDRESS' is not defined"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "0847074b"
+      },
+      "source": [
+        "### 2. Compile the contract using `solc`"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "collapsed": true,
+        "id": "b86501c7",
+        "outputId": "d61c5b2b-cd6b-477a-9ea1-694b5cb99407"
+      },
+      "source": [
+        "# Compile the contract. The `--bin` flag outputs the bytecode, and `--abi` outputs the Application Binary Interface.\n",
+        "# The `--optimize` flag enables the optimizer.\n",
+        "!solc --bin --abi SimpleStorage.sol"
+      ],
+      "execution_count": 39,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "/bin/bash: line 1: solc: command not found\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "e87b02cc"
+      },
+      "source": [
+        "The output above shows the compiled bytecode and ABI for the `SimpleStorage` contract."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "GQ18Kd5F3uKe"
+      },
+      "outputs": [],
+      "source": [
+        "!pip install matplotlib-venn"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "__3eqm3q3sr-"
+      },
+      "outputs": [],
+      "source": [
+        "!apt-get -qq install -y libfluidsynth1"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "apoRbfWsRZ7S"
+      },
+      "source": [
+        "# Install 7zip reader [libarchive](https://pypi.python.org/pypi/libarchive)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "d_j7nNbKRmhx"
+      },
+      "outputs": [],
+      "source": [
+        "# https://pypi.python.org/pypi/libarchive\n",
+        "!apt-get -qq install -y libarchive-dev && pip install -U libarchive\n",
+        "import libarchive"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "PeaSX9KXR58J"
+      },
+      "source": [
+        "# Install GraphViz & [PyDot](https://pypi.python.org/pypi/pydot)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "w9llCG2wSRDx"
+      },
+      "outputs": [],
+      "source": [
+        "# https://pypi.python.org/pypi/pydot\n",
+        "!apt-get -qq install -y graphviz && pip install pydot\n",
+        "import pydot"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Tlh1MKxGrKFO"
+      },
+      "source": [
+        "# Install [cartopy](http://scitools.org.uk/cartopy/docs/latest/)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "Zq68DSY2rP2W"
+      },
+      "outputs": [],
+      "source": [
+        "!pip install cartopy\n",
+        "import cartopy"
+      ]
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "name": "Snippets: Importing libraries",
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
