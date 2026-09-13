@@ -260,3 +260,6 @@
   "nbformat": 4,
   "nbformat_minor": 0
 }
+
+pip3 install --upgrade pip
+pip3 install jupyter
