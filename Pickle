@@ -1,0 +1,262 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/tuckerlucy1/AURORA-MASTER-REPOSITORY/blob/main/Pickle\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "kDn_lVxg3Z2G"
+      },
+      "source": [
+        "# Importing a library that is not in Colaboratory\n",
+        "\n",
+        "To import a library that's not in Colaboratory by default, you can use `!pip install` or `!apt-get install`."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "GQ18Kd5F3uKe"
+      },
+      "outputs": [],
+      "source": [
+        "!pip install matplotlib-venn"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "__3eqm3q3sr-"
+      },
+      "outputs": [],
+      "source": [
+        "!apt-get -qq install -y libfluidsynth1"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "apoRbfWsRZ7S"
+      },
+      "source": [
+        "# Install 7zip reader [libarchive](https://pypi.python.org/pypi/libarchive)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "d_j7nNbKRmhx"
+      },
+      "outputs": [],
+      "source": [
+        "# https://pypi.python.org/pypi/libarchive\n",
+        "!apt-get -qq install -y libarchive-dev && pip install -U libarchive\n",
+        "import libarchive"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "PeaSX9KXR58J"
+      },
+      "source": [
+        "# Install GraphViz & [PyDot](https://pypi.python.org/pypi/pydot)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "w9llCG2wSRDx"
+      },
+      "outputs": [],
+      "source": [
+        "# https://pypi.python.org/pypi/pydot\n",
+        "!apt-get -qq install -y graphviz && pip install pydot\n",
+        "import pydot"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Tlh1MKxGrKFO"
+      },
+      "source": [
+        "# Install [cartopy](http://scitools.org.uk/cartopy/docs/latest/)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "Zq68DSY2rP2W"
+      },
+      "outputs": [],
+      "source": [
+        "!pip install cartopy\n",
+        "import cartopy"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from eth import constants, Chain\n",
+        "from eth.vm.forks.frontier import FrontierVM\n",
+        "from eth.vm.forks.homestead import HomesteadVM\n",
+        "from eth.chains.mainnet import HOMESTEAD_MAINNET_BLOCK\n",
+        "\n",
+        "chain_class = Chain.configure(\n",
+        "    __name__='Test Chain',\n",
+        "    vm_configuration=(\n",
+        "        (constants.GENESIS_BLOCK_NUMBER, FrontierVM),\n",
+        "        (HOMESTEAD_MAINNET_BLOCK, HomesteadVM),\n",
+        "    ),\n",
+        ")"
+      ],
+      "metadata": {
+        "id": "As4XWL0Jv4Ef"
+      },
+      "execution_count": 22,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from eth import constants, Chain\n",
+        "from eth.vm.forks.frontier import FrontierVM\n",
+        "from eth.vm.forks.homestead import HomesteadVM\n",
+        "from eth.chains.mainnet import HOMESTEAD_MAINNET_BLOCK\n",
+        "\n",
+        "chain_class = Chain.configure(\n",
+        "    __name__='Test Chain',\n",
+        "    vm_configuration=(\n",
+        "        (constants.GENESIS_BLOCK_NUMBER, FrontierVM),\n",
+        "        (HOMESTEAD_MAINNET_BLOCK, HomesteadVM),\n",
+        "    ),\n",
+        ")\n",
+        "\n",
+        "from eth.db.atomic import AtomicDB\n",
+        "from eth.chains.mainnet import MAINNET_GENESIS_HEADER\n",
+        "\n",
+        "# start a fresh in-memory db\n",
+        "\n",
+        "# initialize a fresh chain\n",
+        "chain = chain_class.from_genesis_header(AtomicDB(), MAINNET_GENESIS_HEADER)"
+      ],
+      "metadata": {
+        "id": "iVIZ9wJFwBPZ"
+      },
+      "execution_count": 28,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "3b1a1cd9"
+      },
+      "source": [
+        "To save the state of the in-memory `AtomicDB` to disk, you can serialize the `chain.db` object (which is the `AtomicDB` instance) using a method like `pickle`. This allows you to write the database's current state to a file."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "64bf734c",
+        "outputId": "a00336d4-c375-4365-99e2-e3c8117f63e3"
+      },
+      "source": [
+        "import pickle\n",
+        "\n",
+        "# Define the path to save the database file\n",
+        "db_save_path = 'atomic_db_state.pickle'\n",
+        "\n",
+        "# Open the file in binary write mode and pickle the chain.db object\n",
+        "with open(db_save_path, 'wb') as f:\n",
+        "    pickle.dump(chain.chaindb, f)\n",
+        "\n",
+        "print(f\"AtomicDB state saved to: {db_save_path}\")"
+      ],
+      "execution_count": 29,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "AtomicDB state saved to: atomic_db_state.pickle\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "c86e4ca0"
+      },
+      "source": [
+        "To load the state back later, you would do the following:"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "a488cc43",
+        "outputId": "28daeb5c-54c1-4c1e-8a2a-304b56eca08c"
+      },
+      "source": [
+        "import pickle\n",
+        "\n",
+        "# Define the path to load the database file\n",
+        "db_load_path = 'atomic_db_state.pickle'\n",
+        "\n",
+        "# Load the pickled database object\n",
+        "with open(db_load_path, 'rb') as f:\n",
+        "    loaded_db = pickle.load(f)\n",
+        "\n",
+        "# You can then use this loaded_db object, for example, to initialize a new chain\n",
+        "# chain_from_disk = chain_class.from_genesis_header(loaded_db, MAINNET_GENESIS_HEADER)\n",
+        "\n",
+        "print(f\"AtomicDB state loaded from: {db_load_path}\")"
+      ],
+      "execution_count": 30,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "AtomicDB state loaded from: atomic_db_state.pickle\n"
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "name": "Snippets: Importing libraries",
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
