@@ -1,0 +1,59 @@
+Let's get both repositories initialized and structured cleanly through the terminal so your deployment pipeline stays locked down and modular.
+### Step 1: awol-server Repository (Backend & Token-Gating Endpoints)
+This repository will house your serverless functions, Guild API integration, Privy/Web3Auth verification, and session token generation.
+#### 1. Directory Structure
+```text
+awol-server/
+├── api/
+│   └── verify-gated.js    # Endpoint for Guild role & session token verification
+├── package.json
+├── .env.example           # Template for environment variables (API keys, secrets)
+└── README.md
+
+```
+#### 2. Terminal Initialization & Push Commands
+Run these commands in your project root to initialize, secure, and push your server repo:
+```bash
+mkdir awol-server && cd awol-server
+npm init -y
+git init
+echo "node_modules/\n.env" > .gitignore
+git add .
+git commit -m "feat: initialize awol-server architecture"
+git branch -M main
+git remote add origin https://github.com/your-username/awol-server.git
+git push -u origin main
+
+```
+### Step 2: awol-contracts Repository (Smart Contracts)
+This repository will hold your Solidity smart contracts, test suites, and deployment scripts for your token and gating logic.
+#### 1. Directory Structure
+```text
+awol-contracts/
+├── contracts/
+│   └── AwolGate.sol       # Your smart contract logic
+├── scripts/
+│   └── deploy.js          # Deployment automation scripts
+├── test/
+│   └── AwolGate.test.js   # Test suite
+├── hardhat.config.js      # Hardhat configuration
+├── package.json
+└── .env.example
+
+```
+#### 2. Terminal Initialization & Push Commands
+Navigate out of your server folder and set up the contracts repository:
+```bash
+cd ..
+mkdir awol-contracts && cd awol-contracts
+npm init -y
+git init
+echo "node_modules/\ncache/\nartifacts/\n.env" > .gitignore
+git add .
+git commit -m "feat: initialize awol-contracts workspace"
+git branch -M main
+git remote add origin https://github.com/your-username/awol-contracts.git
+git push -u origin main
+
+```
+Which repository would you like to drop the first functional code block into—the server endpoint logic or the smart contract?
